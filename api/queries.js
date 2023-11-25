@@ -1,10 +1,12 @@
-const Pool=require('pg').Pool
+const envConfig = require('../env/db.env')
+
+const Pool = require('pg').Pool
 const pool = new Pool({
-    user:'postgres',
-    host:'172.17.0.2',
-    database:'dbtest',
-    password:'postgres',
-    port:5432
+    host: envConfig.HOST,
+    user: envConfig.USER,
+    password: envConfig.PASSWORD,
+    database: envConfig.DB,
+    port: envConfig.PORT
 })
 
 const getUsers = (request, response) => {
@@ -69,4 +71,4 @@ module.exports = {
     createUser,
     updateUser,
     deleteUser,
-  }
+}
