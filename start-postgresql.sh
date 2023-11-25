@@ -5,7 +5,6 @@ docker run --rm -d \
 -e POSTGRES_PASSWORD=postgres \
 -e POSTGRES_USER=postgres \
 -e POSTGRES_DB=dbtest \
--p 5432:5432 \
 -v ./entry-postgres-folder/:/docker-entrypoint-initdb.d/ \
 postgres
 
@@ -15,3 +14,8 @@ docker run --rm -d \
 -e PGADMIN_DEFAULT_PASSWORD=password \
 -p 8080:80 \
 dpage/pgadmin4
+
+docker run --rm -d \
+--name node-api \
+-p 3000:3000 \
+custom-node
