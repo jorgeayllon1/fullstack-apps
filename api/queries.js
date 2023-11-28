@@ -1,4 +1,4 @@
-const envConfig = require('../env/db.env')
+const envConfig = require('./db.env')
 
 const Pool = require('pg').Pool
 const pool = new Pool({

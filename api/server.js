@@ -1,11 +1,9 @@
 #!/usr/bin/env node
-const globalConfig = require('../env/node-api.env')
-
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 const db = require('./queries')
-const port = globalConfig.PORT
+const port = process.env.PORT
 
 app.use(bodyParser.json())
 app.use(

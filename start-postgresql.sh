@@ -15,7 +15,8 @@ docker run --rm -d \
 -p 8080:80 \
 dpage/pgadmin4
 
+docker build -f api/Dockerfile.api -t node-api .
 docker run --rm -d \
 --name node-api \
 -p 3000:3000 \
-custom-node
+node-api
