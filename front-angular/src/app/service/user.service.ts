@@ -8,11 +8,15 @@ const baseUrl = 'http://localhost:3000/';
 @Injectable({
   providedIn: 'root'
 })
-export class TutorialService {
+export class UserService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  getAll():Observable<Users[]>{
-    return this.http.get<Users[]>(baseUrl);
+  getAll(): Observable<Users[]> {
+    return this.http.get<Users[]>(baseUrl + "users/");
+  }
+
+  get(id: any): Observable<Users> {
+    return this.http.get(`${baseUrl}users/${id}`)
   }
 }
