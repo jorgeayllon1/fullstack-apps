@@ -20,3 +20,5 @@ docker run --rm -d \
 --name node-api \
 -p 3000:3000 \
 node-api
+
+ng new --skip-install --skip-git -S --minimal --style css --ssr --routing front-angular
