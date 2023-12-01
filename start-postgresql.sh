@@ -5,7 +5,7 @@ docker run --rm -d \
 -e POSTGRES_PASSWORD=postgres \
 -e POSTGRES_USER=postgres \
 -e POSTGRES_DB=dbtest \
--v ./entry-postgres-folder/:/docker-entrypoint-initdb.d/ \
+-v ./postgresql/:/docker-entrypoint-initdb.d/ \
 postgres
 
 docker run --rm -d \
@@ -21,4 +21,4 @@ docker run --rm -d \
 -p 3000:3000 \
 node-api
 
-ng new --skip-install --skip-git -S --minimal --style css --ssr --routing front-angular
+ng new -s -t --routing true --skip-git --skip-install -S --ssr --style css front-angular
