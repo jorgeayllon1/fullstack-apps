@@ -1,7 +1,5 @@
 FROM node:alpine
 
-ENV PORT=3000
-
 WORKDIR /code
 
 COPY ./api/ .
