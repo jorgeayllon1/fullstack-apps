@@ -19,6 +19,7 @@ docker run --rm -d \
 -v pg-data:/var/lib/postgresql/data \
 postgres
 
+# Access database
 docker run --rm -d \
 --name pgadmin \
 -e PGADMIN_DEFAULT_EMAIL=jayllon@test.fr \
@@ -35,4 +36,13 @@ docker run --rm -d \
 -p 3000:3000 \
 node-api
 
+# Create front angular project
 ng new -s -t --routing true --skip-git --skip-install -S --ssr --style css front-angular
+
+# Build Front
+docker build -f Dockerfile.front -t angular-front .
+# Run front
+docker run --rm -d \
+--name angular-front \
+-p 4200:80 \
+angular-front

@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   template:
     `
-    <li *ngFor="let user of users">{{user.name}}</li>
+    <li *ngFor="let user of users">{{user.name}} : {{user.email}}</li>
     `,
   styles: ``
 })
