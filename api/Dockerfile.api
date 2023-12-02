@@ -1,10 +1,14 @@
-FROM node:alpine
+FROM node:alpine as build
 
 WORKDIR /code
 
-COPY ./api/ .
-COPY ./env/ .
+COPY . .
 
-RUN npm i install
+RUN npm i install --production
+
+FROM node:hydrogen-alpine3.18
+WORKDIR /server
+
+COPY --from=build /code /server/
 
 CMD [ "node","server.js" ]
