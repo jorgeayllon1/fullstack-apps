@@ -1,12 +1,12 @@
-const envConfig = require('./env/db.env')
+#!/usr/bin/env node
 
 const Pool = require('pg').Pool
 const pool = new Pool({
-    host: envConfig.HOST,
-    user: envConfig.USER,
-    password: envConfig.PASSWORD,
-    database: envConfig.DB,
-    port: envConfig.PORT
+    host: process.env.DB_HOSTNAME,
+    user: process.env.POSTGRES_USER,
+    password: process.env.POSTGRES_PASSWORD,
+    database: process.env.POSTGRES_DB,
+    port: process.env.DB_PORT
 })
 
 const getUsers = (request, response) => {

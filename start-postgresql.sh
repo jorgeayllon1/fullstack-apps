@@ -32,7 +32,7 @@ docker build -f api/Dockerfile.api -t node-api .
 # run api
 docker run --rm -d \
 --name node-api \
--e PORT=3000 \
+-e ENTRY_PORT=3000 \
 -p 3000:3000 \
 node-api
 
