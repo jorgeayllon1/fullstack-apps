@@ -1,0 +1,32 @@
+services:
+  postgres:
+    image: postgres
+    hostname: postgres
+    env_file:
+      - ./postgresql/postgresql.env
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+
+  node-api:
+    image: node-api
+    hostname: node-api
+    env_file:
+    - ./api/node-api.env
+    - ./postgresql/postgresql.env
+    depends_on:
+      - postgres
+  
+  # WIP - Externaliser la CONF
+  # angular-front:
+  #   image: angular-front
+  #   hostname: angular-front
+  #   env_file:
+  #     - ./api/node-api.env
+  #     - ./front-angular/front-angular.env
+  #   ports:
+  #     - 4200:80
+  #   depends_on:
+  #     - node-api
+volumes:
+  pg-data:
+    external: true
