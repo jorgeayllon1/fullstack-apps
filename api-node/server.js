@@ -3,7 +3,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 const db = require('./queries')
-const port = process.env.ENTRY_PORT
+const port = process.env.API_NODE_PORT
 const api_name = process.env.API_NAME
 
 app.use(bodyParser.json())
