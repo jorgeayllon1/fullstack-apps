@@ -28,7 +28,7 @@ docker run --rm -d \
 dpage/pgadmin4
 
 # build api
-docker build -f api/Dockerfile.api -t node-api .
+docker build -f Dockerfile.api -t node-api .
 # run api
 docker run --rm -d \
 --name node-api \
@@ -46,3 +46,6 @@ docker run --rm -d \
 --name angular-front \
 -p 4200:80 \
 angular-front
+
+# Run compose
+docker compose -f compose.yml up -d
