@@ -15,8 +15,6 @@ services:
     env_file:
     - ./api-node/node-api.env
     - ./postgresql/postgresql.env
-    ports:
-      - 3000:3000
     depends_on:
       - postgres
 
@@ -24,9 +22,8 @@ services:
     image: angular-front
     container_name: angular-front
     hostname: angular-front
-    # env_file:
-    #   - ./api/node-api.env
-    #   - ./front-angular/front-angular.env
+    env_file:
+      - ./api-node/node-api.env
     ports:
       - 4200:80
     depends_on:
