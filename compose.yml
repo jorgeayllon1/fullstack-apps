@@ -19,18 +19,19 @@ services:
       - 3000:3000
     depends_on:
       - postgres
-  
-  # WIP - Externaliser la CONF
-  # angular-front:
-  #   image: angular-front
-  #   hostname: angular-front
-  #   env_file:
-  #     - ./api/node-api.env
-  #     - ./front-angular/front-angular.env
-  #   ports:
-  #     - 4200:80
-  #   depends_on:
-  #     - node-api
+
+  angular-front:
+    image: angular-front
+    container_name: angular-front
+    hostname: angular-front
+    # env_file:
+    #   - ./api/node-api.env
+    #   - ./front-angular/front-angular.env
+    ports:
+      - 4200:80
+    depends_on:
+      - node-api
+
 volumes:
   pg-data:
     external: true
