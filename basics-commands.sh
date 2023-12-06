@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Create volume
+docker volume create pg-data
 # init db
 docker run --rm -d \
 --name postgres \
