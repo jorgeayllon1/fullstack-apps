@@ -5,6 +5,8 @@ services:
     hostname: postgres
     env_file:
       - ./postgresql/postgresql.env
+    networks:
+      - back-network
     volumes:
       - pg-data:/var/lib/postgresql/data
 
@@ -15,6 +17,9 @@ services:
     env_file:
     - ./api-node/node-api.env
     - ./postgresql/postgresql.env
+    networks:
+      - back-network
+      - front-network
     depends_on:
       - postgres
 
@@ -24,6 +29,8 @@ services:
     hostname: angular-front
     env_file:
       - ./api-node/node-api.env
+    networks:
+      - front-network
     ports:
       - 4200:80
     depends_on:
@@ -32,3 +39,11 @@ services:
 volumes:
   pg-data:
     external: true
+
+networks:
+  back-network:
+    name: back-network
+    driver: bridge
+  front-network:
+    name: front-network
+    driver : bridge
