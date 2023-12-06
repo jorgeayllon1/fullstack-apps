@@ -1,4 +1,4 @@
-FROM node:alpine as build
+FROM node:current-alpine3.18 as build
 
 EXPOSE 3000
 
@@ -12,5 +12,7 @@ FROM node:hydrogen-alpine3.18
 WORKDIR /server
 
 COPY --from=build /code /server/
+
+USER node
 
 CMD [ "node","server.js" ]
