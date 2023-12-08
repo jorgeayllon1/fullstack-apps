@@ -1,1 +1,2 @@
 *.sh text eol=lf charset=UTF-8
+*.conf text eol=lf charset=UTF-8

@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { UsersListComponent } from './components/users-list/users-list.component';
-import { UserService } from './service/user.service';
 
 @Component({
   selector: 'app-root',
